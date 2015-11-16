@@ -255,7 +255,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
      inkscape:cx="745.31703"
-     inkscape:cy="1089.5331"
+     inkscape:cy="403.81884"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -530,18 +530,7 @@
        d="m 677.14286,162.3622 87.14285,551.42857"
        id="path4704"
        inkscape:connector-curvature="0" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot4746"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(-92.857143,90)"><flowRegion
-         id="flowRegion4748"><rect
-           id="rect4750"
-           width="321.42856"
-           height="120"
-           x="827.14288"
-           y="289.50507" /></flowRegion><flowPara
-         id="flowPara4752">Metric Flow</flowPara></flowRoot>    <path
+    <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:30, 5;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker5144)"
        d="m 360,168.07649 2.85714,125.71429"
        id="path5142"
@@ -550,7 +539,7 @@
        xml:space="preserve"
        id="flowRoot4746-9"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(-442.51367,-116.38723)"><flowRegion
+       transform="translate(-712.51367,-112.10152)"><flowRegion
          id="flowRegion4748-7"><rect
            id="rect4750-8"
            width="321.42856"
@@ -598,7 +587,7 @@
        xml:space="preserve"
        id="flowRoot5616"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(297.14286,21.428571)"><flowRegion
+       transform="translate(300,170)"><flowRegion
          id="flowRegion5618"><rect
            id="rect5620"
            width="267.14282"
@@ -616,7 +605,7 @@
        xml:space="preserve"
        id="flowRoot5630"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(355.71429,-77.142857)"><flowRegion
+       transform="translate(348.57143,-132.85714)"><flowRegion
          id="flowRegion5632"><rect
            id="rect5634"
            width="317.14288"
@@ -634,7 +623,7 @@
        xml:space="preserve"
        id="flowRoot5661"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(105.71429,17.142857)"><flowRegion
+       transform="translate(340,-62.857143)"><flowRegion
          id="flowRegion5663"><rect
            id="rect5665"
            width="265.71429"
@@ -652,7 +641,7 @@
        xml:space="preserve"
        id="flowRoot5671"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(248.57143,10)"><flowRegion
+       transform="translate(364.28572,71.428571)"><flowRegion
          id="flowRegion5673"><rect
            id="rect5675"
            width="105.71428"
