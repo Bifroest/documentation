@@ -255,7 +255,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
      inkscape:cx="745.31703"
-     inkscape:cy="1375.2474"
+     inkscape:cy="746.67599"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -502,30 +502,7 @@
        height="82.85714"
        x="590"
        y="1356.6479" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot3552"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(81.428571,30)"><flowRegion
-         id="flowRegion3554"><rect
-           id="rect3556"
-           width="364.28571"
-           height="110.00005"
-           x="-100"
-           y="1128.0765" /></flowRegion><flowPara
-         id="flowPara3558">Bifroest-Heimdall</flowPara><flowPara
-         id="flowPara3560">Instances</flowPara></flowRoot>    <flowRoot
-       xml:space="preserve"
-       id="flowRoot3564"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(118.57143,25.714286)"><flowRegion
-         id="flowRegion3566"><rect
-           id="rect3568"
-           width="535.71436"
-           height="72.85704"
-           x="-244.28572"
-           y="1310.9336" /></flowRegion><flowPara
-         id="flowPara3578">graphite-web Instances </flowPara></flowRoot>    <path
+    <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:40, 20;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker4712)"
        d="m 677.14286,162.3622 87.14285,551.42857"
        id="path4704"
@@ -535,18 +512,7 @@
        d="m 360,168.07649 2.85714,125.71429"
        id="path5142"
        inkscape:connector-curvature="0" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot4746-9"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(-456.79938,-114.95866)"><flowRegion
-         id="flowRegion4748-7"><rect
-           id="rect4750-8"
-           width="321.42856"
-           height="120"
-           x="827.14288"
-           y="289.50507" /></flowRegion><flowPara
-         id="flowPara4752-2">Metric Flow</flowPara></flowRoot>    <path
+    <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:60, 5;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker5216)"
        d="M 468.57143,555.21935 590,692.3622"
        id="path5214"
@@ -577,86 +543,122 @@
        id="path5342"
        inkscape:connector-curvature="0" />
     <rect
-       style="fill:#939dac;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:30, 5;stroke-dashoffset:0"
-       id="rect5614"
-       width="890"
-       height="87.14286"
-       x="-48.57143"
-       y="-87.637794" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot5616"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(300,170)"><flowRegion
-         id="flowRegion5618"><rect
-           id="rect5620"
-           width="267.14282"
-           height="64.285713"
-           x="-27.142857"
-           y="-173.35208" /></flowRegion><flowPara
-         id="flowPara5622">CARBON API</flowPara></flowRoot>    <rect
-       style="fill:#939dac;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:30, 5;stroke-dashoffset:0"
-       id="rect5628"
-       width="967.14288"
-       height="68.571426"
-       x="-132.85715"
-       y="1479.505" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot5630"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(348.57143,-132.85714)"><flowRegion
-         id="flowRegion5632"><rect
-           id="rect5634"
-           width="317.14288"
-           height="71.428574"
-           x="-120"
-           y="1569.505" /></flowRegion><flowPara
-         id="flowPara5636">GRAPHITE API</flowPara></flowRoot>    <rect
        style="fill:#d42aff;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:30, 5;stroke-dashoffset:0"
        id="rect5659"
        width="71.428574"
        height="64.285713"
        x="-355.71429"
        y="385.21936" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot5661"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(340,-62.857143)"><flowRegion
-         id="flowRegion5663"><rect
-           id="rect5665"
-           width="265.71429"
-           height="65.714287"
-           x="-692.85712"
-           y="372.36221" /></flowRegion><flowPara
-         id="flowPara5667">Aggregator</flowPara></flowRoot>    <rect
+    <rect
        style="fill:#aa0088;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:30, 5;stroke-dashoffset:0"
        id="rect5669"
        width="65.714287"
        height="65.714287"
-       x="-357.14285"
-       y="536.64795" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot5671"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(364.28572,71.428571)"><flowRegion
-         id="flowRegion5673"><rect
-           id="rect5675"
-           width="105.71428"
-           height="59.999973"
-           x="-717.14288"
-           y="536.64795" /></flowRegion><flowPara
-         id="flowPara5677">Ymir</flowPara></flowRoot>    <path
+       x="-7.1428528"
+       y="638.07654" />
+    <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:40, 5;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#Arrow2Lstart);marker-end:url(#marker5775)"
        d="m -224.28571,415.21935 342.85714,35.71428"
        id="path5681"
        inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:60, 5;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#Arrow2Lstart-3);marker-end:url(#marker5775-6)"
-       d="M -230,572.3622 130,505.21935"
-       id="path6248"
-       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="399.37048"
+       y="237.27426"
+       id="text3338-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3340-4"
+         x="399.37048"
+         y="237.27426">Metric Flow</tspan></text>
+    <rect
+       style="fill:#ff6600;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:60, 5;stroke-dashoffset:0"
+       id="rect6358-9"
+       width="1090"
+       height="67.142876"
+       x="-291.83066"
+       y="-78.352142" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="126.51334"
+       y="-31.297167"
+       id="text3338-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3340-8"
+         x="126.51334"
+         y="-31.297167">CARBON API</tspan></text>
+    <rect
+       style="fill:#ff6600;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:60, 5;stroke-dashoffset:0"
+       id="rect6358"
+       width="1090"
+       height="67.142876"
+       x="-261.11639"
+       y="1476.6479" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="166.51334"
+       y="1525.8457"
+       id="text3338-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3340-44"
+         x="166.51334"
+         y="1525.8457">GRAPHITE API</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-506.34381"
+       y="362.98856"
+       id="text3338-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3340-6"
+         x="-506.34381"
+         y="362.98856">Aggregator</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-116.34379"
+       y="684.41711"
+       id="text3338-13"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3340-82"
+         x="-116.34379"
+         y="684.41711">Ymir</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-46.388451"
+       y="1187.9885"
+       id="text3423-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3425-3"
+         x="-46.388451"
+         y="1187.9885">Bifroest-Heimdall</tspan><tspan
+         sodipodi:role="line"
+         x="-46.388451"
+         y="1237.9885"
+         id="tspan3427-1">Instances</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-2.1027319"
+       y="1380.8457"
+       id="text3423-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="-2.1027319"
+         y="1380.8457"
+         id="tspan3427-0">graphite-web</tspan><tspan
+         sodipodi:role="line"
+         x="-2.1027319"
+         y="1430.8457"
+         id="tspan6464">Instances</tspan></text>
   </g>
 </svg>
