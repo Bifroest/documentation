@@ -257,14 +257,41 @@ c.g.p.c.b.BootLoaderNG | INFO | Service startup successful.
 		- To fix this problem, increase the number of bifroest nodes, or increase the number of threads for the netty system.
 
 ## Heimdall
-- TODO: note: If entire bifroest cluster was down, restart all Heimdalls.
 
-### Important Configuration Parameters
+### Important configuration parameters
 
- - TODO: (Bifroest Seeds)
+Heimdall needs a configured bifroest-client. This looks just about like this:
 
-### Troubleshooting
-- Check the general troubleshooting section
+```
+{
+  "bifroest-client" : {
+    "seeds" : [
+      { "host" : "caching01.bifroest.acme.org", "port" : 5000 },
+      { "host" : "caching02.bifroest.acme.org", "port" : 5000 },
+    ],
+    "ping-frequency" : "10s"
+  }
+}
+```
+
+Again, the hosts and ports here need to be a port of a multi-server-system which supports the command "get-cluster-state". Once the intial cluster connection has been made, and as long as a node of the
+bifroest cluster remains up, heimdall will keep updating it's cluster mapping.
+
+**Once all bifroest nodes have been down at the same time**, you must restart heimdall to get a new
+mapping. This is a known bug. 
+
+### Normal startup
+
+The interesting parts of the heimdall startup mostly consists of the bifroest client and 
+looks like this:
+
+```
+c.g.p.c.b.BootLoaderNG | INFO | Booting bifroest.bifroest-client
+ c.g.p.b.b.BasicClient | INFO | Connecting to initial nodes [NodeMetadata [funnyNameForDebugging=RidiculousQuokka, nodeIdentifier=255f8edb-bd69-41ea-af96-ef3338111ac7, address=caching04.bifroest.acme.org, ports=DeserializedPortMap{clusterPort=5300, includeMetricPort=5102, fastIncludeMetricPort=5200, getMetricPort=5100, getMetricSetPort=5100, getSubmetricPort=5101}]
+```
+
+### Known Specific issues
+- We have not found specific issues in heimdall so far.
 
 ## Aggregator
 ### Important Configuration Parameters
