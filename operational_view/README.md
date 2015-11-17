@@ -12,17 +12,53 @@
 - statistic system
 
 
-### Troubleshooting
- - If everything else fails, check these / document likeliness of these issues.
- - Statistic system.
- - Check in logs if either the cassandra nodes or bifroest-bifroest have problems. (Look out for cassandra exceptions otherwise check bifroest itself)
-        - If you cannot see anything in the logs just restart the service and look if the problem still exists
-        - Possible Cause: Statistic System
-            - To identify this issue: Go to graphite and create yourself a graph, or check the metric-files bifroest outputs:
-              - Select all metrics under `Bifroest.$application.EventBus.Handler-\*.Utilization.Events.\*`
-              - Derive all metrics, and scale them with 1e-9.
-              - This is going to look like a CPU graph.
-	- If there is no more time spent in Idle and all time is spent in other events, increase the number of threads for the statistic system in the config.
+### Shared possible problems
+
+#### Overloaded Statistic System
+
+All systems in the bifroest stack depend on the statistic system to 
+provide the strong self-monitoring. However, the statistic system 
+has potential to block the entire bifroest service if the event bus
+fills up.
+
+ - To identify this issue:
+     - If graphite still outputs graphs:
+         - Create yourself a graph, or check the metric-files bifroest outputs:
+            - Select all metrics under `Bifroest.$application.EventBus.Handler-\*.Utilization.Events.\*`
+            - Derive all metrics, and scale them with 1e-9.
+            - This is going to look like a CPU graph
+            - If there is no or very little time spent in idle, the statistic system is unable
+              to handle the overall load of the system.
+     - Otherwise, check the metric file with watch and grep for Utilization.Events.Idle. If this metric is
+       increasing very little, the event system is always busy crunching events and overall, overloaded.
+
+In order to mitigate this issue, increase the number of handlers in the statistic system of the service:
+
+```
+{
+  "statistics" : {
+-    "handler-count" : 1,
++    "handler-count" : 2,
+  }
+}
+```
+
+#### Not enough buffer space in the EventBus
+
+If the application is peaking heavily with events, it is possible that the statistic system could
+handle the load on average, but the service is currently trying to cram 60k events into a bus with
+around 4k storage capacity. That's not going to work. 
+
+ - To identify this issue:
+     - Look at the number of events fired per second, either in Graphite (Bifroest.$application.EventBus.EventsFired),
+       or in the metrics file and derive it. In the file, this requires some eye-balling, but we're mostly
+       interested in the magnitude.
+     - Look at the statistic system configuration, and the size-exponent of the eventbus. The overall buffer
+       capacity of the eventbus is around 2^${size-exponent}. 
+
+In order to mitigate this issue, ensure that the buffer size is around 100 times as large as the events per
+second. (Yup, that means bifroest with something like 10k events should run with an event bus of 100k - 1m
+events, which is a size exponent of around 20).
 
 ## Stream Rewriter
 
@@ -36,6 +72,7 @@ In order to start and stop the stream-rewriter
 - 
 
 ### Troubleshooting
+- Check in logs if either the cassandra nodes or bifroest-bifroest have problems. (Look out for cassandra exceptions otherwise check bifroest itself)
 - What do to if port 9003 suddenly closes?
 	- Check the general troubleshooting steps
 - There are no more metrics coming to bifroest?!
