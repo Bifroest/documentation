@@ -87,7 +87,7 @@ Normal startup of the **bifroest client system** looks roughly like this:
 
 ```
 c.g.p.c.b.BootLoaderNG | INFO | Booting bifroest.bifroest-client
-c.g.p.b.b.BasicClient | INFO | Connecting to initial nodes [NodeMetadata [funnyNameForDebugging=RidiculousQuokka, nodeIdentifier=255f8edb-bd69-41ea-af96-ef3338111ac7, address=caching04.bifroest-sglimm.meow.ggs-net.com, ports=DeserializedPortMap{clusterPort=5300, includeMetricPort=5102, fastIncludeMetricPort=5200, getMetricPort=5100, getMetricSetPort=5100, getSubmetricPort=5101}],...] 
+c.g.p.b.b.BasicClient | INFO | Connecting to initial nodes [NodeMetadata [funnyNameForDebugging=RidiculousQuokka, nodeIdentifier=255f8edb-bd69-41ea-af96-ef3338111ac7, address=caching04.bifroest.acme.org, ports=DeserializedPortMap{clusterPort=5300, includeMetricPort=5102, fastIncludeMetricPort=5200, getMetricPort=5100, getMetricSetPort=5100, getSubmetricPort=5101}],...] 
 c.g.p.b.b.BasicClient | INFO | New mapping: com.goodgame.profiling.bifroest.balancing.KeepNeighboursMapping@791fbb3d
 ```
 
@@ -114,6 +114,13 @@ Normal startup of the DBNator system and the netty system are quite short:
 c.g.p.c.b.BootLoaderNG | INFO | Booting systems.stream-rewriter.db
 c.g.p.c.b.BootLoaderNG | INFO | Booting systems.stream-rewriter.netty
 c.g.p.s.n.NettySystem | INFO | Opening port!
+```
+
+
+After this, the bootloader announces successful startup:
+
+```
+c.g.p.c.b.BootLoaderNG | INFO | Service startup successful.
 ```
 
 After this, port 9003 is open and the stream rewriter is ready for operation. 
@@ -145,8 +152,61 @@ In order to start and stop the stream-rewriter
 
 ## Bifroest
 
- - TODO: expected behaviour after a start
- - TODO: talk about preloading stuff.
+### Normal Startup
+During startup, the following critical systems are booted:
+
+ - The cassandra System
+ - The Metric Caches
+ - The bifroest clustering
+
+Normal startup of the **cassandra system** is the same as the stream rewriter.
+
+Normal startup of the **metric cache system** looks like this:
+
+```
+2015-11-17T13:14:15,194 | c.g.p.c.b.BootLoaderNG | INFO | Booting graphite.bifroest.metric-cache
+2015-11-17T13:14:15,264 | c.g.p.g.m.MetricCache | INFO | Created cache for daily
+2015-11-17T13:14:15,315 | c.g.p.g.m.MetricCache | INFO | Created cache for 1minute
+2015-11-17T13:14:15,752 | c.g.p.g.m.MetricCache | INFO | Created cache for hourly
+2015-11-17T13:14:16,191 | c.g.p.g.m.MetricCache | INFO | Created cache for 5minutes
+2015-11-17T13:14:16,816 | c.g.p.g.m.MetricCache | INFO | Created cache for 10seconds
+```
+
+Normal start of the **bifroest clustering system** looks like this:
+
+First, the node announces it's own metadata:
+```
+2015-11-17T13:14:16,949 | c.g.p.g.c.ClusterSystem | INFO | I am NodeMetadata [funnyNameForDebugging=ZappyFrisbee, nodeIdentifier=ec29bdf0-90df-4498-898b-afa56bf1a344, address=caching02.bifroest.acme.org, ports=BifroestPortmap{clusterPort=5300, includeMetricPort=5102, fastIncludeMetricPort=5200, getMetricPort=5100, getMetricSetPort=5100, getSubmetricPort=5101}]
+```
+
+After this, the node is going to check all bifroest seeds from the configuration for existing cluster
+metadata. If the node has discovered an existing cluster, the node state will announce this and change it's
+state to joining the cluster:
+
+```
+c.g.p.g.c.s.NodeIsLonelyAndSad | INFO | Found ClusterState Optional[com.goodgame.profiling.bifroest.bifroest_client.metadata.ClusterState@705fca1]
+c.g.p.g.c.BifroestClustering | INFO | start clustering -> State change: NodeIsLonelyAndSad -> NodeIsJoining
+```
+
+In this state, the node is waiting for the updated cluster mapping. Once the node received the new
+mapping, it will change it's state into a full member node:
+
+```
+c.g.p.g.c.BifroestClustering | INFO | reacting to new mapping -> State change: NodeIsJoining -> NodeIsMember
+```
+
+After this initial joining, the node is going to keep preloading metrics as the cluster tells the new node
+what metrics have been requested:
+
+```
+c.g.p.g.c.BifroestClustering | INFO | reacting to transferred metrics -> State change: NodeIsMember -> NodeIsMember
+```
+
+After this, bifroest announces successful startup:
+
+```
+c.g.p.c.b.BootLoaderNG | INFO | Service startup successful.
+```
 
 #### Do's & Donts
 - Don't (re)start bifroest-caches too quickly one after each other. If a starting bifroest is unable to find a running bifroest cluster, it will start to bootstrap it's own cluster. This can lead to a split-brain situation. In this case, restart all leader bifroest nodes except for one.
