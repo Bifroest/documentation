@@ -26,7 +26,6 @@ fills up.
          - Create yourself a graph:
             - Select all metrics under `Bifroest.$application.EventBus.Handler-*.Utilization.Events.*`
             - Derive all metrics, and scale them with 1e-9.
-            - This is going to look like a CPU graph
             - If there is no or very little time spent in idle, the statistic system is unable
               to handle the overall load of the system.
      - Otherwise, check the metric file with watch and grep for Utilization.Events.Idle. If this metric is
