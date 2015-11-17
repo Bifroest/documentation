@@ -9,7 +9,7 @@ The critical data path is the path from the `Carbon API endpoint` to the
 database. It is critical, because if we lose metrics here, they're gone
 for good and nothing can help us here.
 
-Thus data path is short and redundant: First, we have a [Apache Cassandra cluster](http://cassandra.apache.org/), 
+Thus this data path is short and redundant: First, we have a [Apache Cassandra cluster](http://cassandra.apache.org/), 
 which is highly available and fault-tolerant. This cassandra cluster is fed by the
 `bifroest-stream-rewriter`. In our test configuration, the stream-rewriter opens port 9003
 and accepts metrics in the `carbon plain text protocol`. The pickle protocol is not
