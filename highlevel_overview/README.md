@@ -89,4 +89,5 @@ can be very heavy on the database.
 
 Ymir is a simple small performance optimization. Ymir pre-creates database tables as
 necessary so once a table is necessary, it was already created and the stream rewriter
-can just write to it.
+can just write to it. This is necessary, because creating table causes all other cassandra
+operations to become synchronized.
