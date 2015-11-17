@@ -24,8 +24,8 @@ fills up.
  - To identify this issue:
      - If graphite still outputs graphs:
          - Create yourself a graph:
-            - Select all metrics under `Bifroest.$application.EventBus.Handler-*.Utilization.Events.*`
-            - Derive all metrics, and scale them with 1e-9.
+            - Select the metric `Bifroest.$application.EventBus.Handler-*.Utilization.Events.idle.TimeSpent`
+            - Derive it, and scale it with 1e-9.
             - If there is no or very little time spent in idle, the statistic system is unable
               to handle the overall load of the system.
      - Otherwise, check the metric file with watch and grep for Utilization.Events.Idle. If this metric is
