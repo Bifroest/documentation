@@ -71,7 +71,64 @@ events, which is a size exponent of around 20). If this is not sufficient, incre
 
 ## Stream Rewriter
 
- - TODO: expected behaviour after a start
+### Expected Behaviour after a start:
+
+#### Normal startup
+
+During normal startup, the stream rewriter at least has to start up the following critical system in roughly
+this order:
+
+    - The bifroest-client system. This system is the connection to the bifroest-cluster
+    - The cassandra connection system. This system provides a persistent cassandra connection.
+    - The DBNator System. This system is reponsible for clearing up the queue of metrics filled by
+      the netty-system.
+    - The netty-system. This system is responsible for accepting metrics in the plaintext carbon format.
+
+Normal startup of the **bifroest client system** looks roughly like this:
+
+```
+c.g.p.c.b.BootLoaderNG | INFO | Booting bifroest.bifroest-client
+c.g.p.b.b.BasicClient | INFO | Connecting to initial nodes [NodeMetadata [funnyNameForDebugging=RidiculousQuokka, nodeIdentifier=255f8edb-bd69-41ea-af96-ef3338111ac7, address=caching04.bifroest-sglimm.meow.ggs-net.com, ports=DeserializedPortMap{clusterPort=5300, includeMetricPort=5102, fastIncludeMetricPort=5200, getMetricPort=5100, getMetricSetPort=5100, getSubmetricPort=5101}],...] 
+c.g.p.b.b.BasicClient | INFO | New mapping: com.goodgame.profiling.bifroest.balancing.KeepNeighboursMapping@791fbb3d
+```
+
+The first line logged by the BasicClient should contain a list of all bifroest-bifroest instances in your bifroest cluster.
+After this line, you'll see the TaskRunner log some stuff about pings to the various bifroests. Finally, new
+"new mapping" logging indicates that bifroest-bifroest has sent this client a new cluster mapping. After this,
+the bifroest-client is ready to send metrics to the bifroest cluster.
+
+Normal startup of the **cassandra client system** looks roughly like this:
+
+```
+c.d.d.c.Cluster | INFO | New Cassandra host $fqdn/$ip:9042 added
+c.d.d.c.Cluster | INFO | New Cassandra host $fqdn/$ip:9042 added
+c.d.d.c.Cluster | INFO | New Cassandra host $fqdn/$ip:9042 added
+c.d.d.c.Cluster | INFO | New Cassandra host $fqdn/$ip:9042 added
+```
+
+This should list all cassandra nodes on your cassandra cluster. After this, the cassandra system is ready to
+fire query towards cassandra.
+
+Normal startup of the DBNator system and the netty system are quite short:
+
+```
+c.g.p.c.b.BootLoaderNG | INFO | Booting systems.stream-rewriter.db
+c.g.p.c.b.BootLoaderNG | INFO | Booting systems.stream-rewriter.netty
+c.g.p.s.n.NettySystem | INFO | Opening port!
+```
+
+After this, port 9003 is open and the stream rewriter is ready for operation. 
+
+#### Problems during startup.
+
+Primarily the client-systems can fail. 
+
+ - If all bifroest-seeds are down, the bifroest-client system will not start
+ - If all cassandra nodes are down, the cassandra-client system will not start.
+
+This is usually communicated with a number of exceptions.
+
+
  - TODO: note: If entire bifroest cluster was down, restart all SRs.
 
 In order to start and stop the stream-rewriter 
