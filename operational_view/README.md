@@ -23,7 +23,7 @@ fills up.
 
  - To identify this issue:
      - If graphite still outputs graphs:
-         - Create yourself a graph, or check the metric-files bifroest outputs:
+         - Create yourself a graph:
             - Select all metrics under `Bifroest.$application.EventBus.Handler-\*.Utilization.Events.\*`
             - Derive all metrics, and scale them with 1e-9.
             - This is going to look like a CPU graph
