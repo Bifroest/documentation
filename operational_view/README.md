@@ -58,7 +58,16 @@ around 4k storage capacity. That's not going to work.
 
 In order to mitigate this issue, ensure that the buffer size is around 100 times as large as the events per
 second. (Yup, that means bifroest with something like 10k events should run with an event bus of 100k - 1m
-events, which is a size exponent of around 20).
+events, which is a size exponent of around 20). If this is not sufficient, increase it:
+
+```
+{
+  "statistics" : {
+-    "size-exponent" : 10,
++    "size-exponent" : 20,
+  }
+}
+```
 
 ## Stream Rewriter
 
