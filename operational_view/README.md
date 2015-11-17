@@ -152,6 +152,39 @@ In order to start and stop the stream-rewriter
 
 ## Bifroest
 
+### Important Configuration Parameters
+
+The clustering system needs special configuration. It needs to contain the cluster-port for this node, the seeds for the bifroest cluster, and the ping-frequency between bifroests. The configuration looks about like this:
+
+```
+{
+    "clustering" : {
+        "cluster-port" : 5300,
+        "seeds" : [
+            { "host" : "caching01.bifroest.acme.org", "port" : 5000 },
+            { "host" : "caching02.bifroest.acme.org", "port" : 5000 },
+            { "host" : "caching03.bifroest.acme.org", "port" : 5000 }
+        ],
+        "ping-frequency" : "10s"
+    }
+}
+```
+
+First, note that there are two different ports involved here, in this case, 5000 and 5300. Port 5000 must be a multi-server command port which supports the command "get-cluster-state". For the configuration of this system,
+check the commons project. These ports are different, because a starting bifroest is going to use the normal
+multi-server "get-cluster-state" command in order to get the current nodes in the cluster. After this, the
+bifroest nodes will open up a persistent connection on the cluster port for additional cluster maintenance.
+Furthermore, the cluster ports don't need to be identical on differnet bifroest nodes - the cluster is
+going to pass portmappings for each node around to figure this out.
+
+Furthermore, these seed nodes behave like cassandra seed nodes, or -- if you use that -- elasticsearch seed
+nodes. At least one of the seed nodes must be available if a new node is supposed to join an existing bifroest
+cluster. Otherwise, nodes are going to build their own cluster, potentially leading to split-brain situations.
+
+Finally, the bifroest-nodes ping each other periodically to figure out if a specific node is down. Having
+too frequent pings risks that garbage collections might cause a node to be considered down, while having
+too high pings might easily overlook downed nodes.
+
 ### Normal Startup
 During startup, the following critical systems are booted:
 
@@ -209,12 +242,7 @@ c.g.p.c.b.BootLoaderNG | INFO | Service startup successful.
 ```
 
 #### Do's & Donts
-- Don't (re)start bifroest-caches too quickly one after each other. If a starting bifroest is unable to find a running bifroest cluster, it will start to bootstrap it's own cluster. This can lead to a split-brain situation. In this case, restart all leader bifroest nodes except for one.
-
-### Important Configuration Parameters
-
- - TODO: Bifroest Seeds
- - TODO: Port
+- Don't (re)start bifroest-caches too quickly one after each other. If a starting bifroest is unable to find a running bifroest cluster, it will start to bootstrap it's own cluster. This can lead to a split-brain situation. In this case, restart all bifroest nodes except for one seed leader. If there is no seed leader, restart all nodes but one seed node.
 
 ### Troubleshooting
 - Bifroest slows down
